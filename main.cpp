@@ -84,10 +84,12 @@ Dynamic Dynamic::operator-(Dynamic& right){
 
 int& Dynamic::operator[](int index){
     if (index >=mas_el_count){
-        this->~Dynamic();
-        throw out_of_range("Index out of range in array \"" + this->masname + '"');
+        cout << "Out of range in \"" << masname << "\". Returned " << masname << "[0]." << endl;
+        return pointer_to_mas[0];
     }
-    return pointer_to_mas[index];
+    else {
+        return pointer_to_mas[index];
+    }
 }
 
 void outdmas(Dynamic& dmas){
