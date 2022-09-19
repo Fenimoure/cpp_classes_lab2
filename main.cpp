@@ -43,11 +43,10 @@ public:
     }
 
     Dynamic next() {
-        Dynamic resultArr(*this);
-        for(int i = 0; i < resultArr.size(); ++i){
-            resultArr[i] += 1;
+        for(int i = 0; i < this->size(); ++i){
+            this->pointer_to_mas[i] += 1;
         }
-        return resultArr;
+        return *this;
     }
 
     int& size() {return mas_el_count;}
@@ -149,12 +148,13 @@ void F () {
 //    cin >> A;
     for(int i = 0; i < B.size(); i++) B[i] = 2 * i;
     cout << A << endl << B << endl;
-    cout << "A.next().next()" << A.next().next() << endl;
-    Dynamic C = A;
-    Dynamic D ("D", 10);
-    D = A - B; // замість ‘@’ підставте свою операцію над масивами
-    //виведення масивів A, B, C, D
-    cout << A << endl << B << endl << C << endl << D << endl;
+    A.next().next();
+    cout << "A.next().next(): " << A.next().next() << endl;
+//    Dynamic C = A;
+//    Dynamic D ("D", 10);
+//    D = A - B; // замість ‘@’ підставте свою операцію над масивами
+//    //виведення масивів A, B, C, D
+//    cout << A << endl << B << endl << C << endl << D << endl;
 }
 
 int main() {
